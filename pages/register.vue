@@ -1,8 +1,8 @@
 <template>
     <main>
-        <div class="title col-12">
+        <!--<div class="title col-12">
             <h1>welcome to our registration page</h1>
-        </div>
+        </div>-->
         <div class="id-no-query-wrapper col-12">
             <div class="id-no col-10">
             
@@ -13,7 +13,7 @@
                     <input type="text" class="form-control" name="ktp"/>
                 </div>
                 <div class="col-4 float-left flex-container">
-                    <v-btn color="info" @click.prevent="submit">Submit</v-btn>
+                    <v-btn color="info" @click.prevent="submit">Cari</v-btn>
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-          <div class="flex-container col-12">
+          <div class="submit-button-wrapper flex-container col-11">
                 <v-btn class="success">Submit</v-btn>
          </div>
     </main>
@@ -156,6 +156,8 @@ export default {
            display: flex;
            justify-content: center;
 
+           padding: 20px;
+
             .user-details {
                 height: auto;
 
@@ -167,6 +169,10 @@ export default {
                     }
                 }
             }
+       }
+
+       .submit-button-wrapper {
+           padding-left:40px;
        }
    }
 </style>

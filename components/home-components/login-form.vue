@@ -13,7 +13,7 @@ export default {
         signUp: function(e) {
            
             
-            this.$router.push({path: "registration"});
+            this.$router.push({path: "register"});
         }
     }
 }

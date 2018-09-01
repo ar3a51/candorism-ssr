@@ -41,7 +41,8 @@
             <v-toolbar-items class="hidden-sm-and-down">
                 <v-btn flat v-for="(link, index) in links" 
                     :key="index" 
-                    @click.prevent="navigate(link.url)">
+                    :to="link.url"
+                    :nuxt="true">
                     {{link.text}}
                 </v-btn>
             </v-toolbar-items>
@@ -53,23 +54,18 @@
 </template>
 <script>
 export default {
+    mounted() {
+        console.log("mounted");
+    },
     data() {
         return {
             display: false,
             links: [
                     { text: 'Home', url: '/'},
                     { text: 'Register', url: '/register'},
-                    { text: 'About Us', url: '/aboutus'}
             ]
         }
     },
-    methods: {
-        navigate(url){
-            this.$router.push({
-                path: url
-            });
-        }
-    }
 }
 </script>
 <style lang="scss" scoped>
