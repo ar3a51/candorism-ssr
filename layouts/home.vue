@@ -63,6 +63,7 @@ export default {
             links: [
                     { text: 'Home', url: '/'},
                     { text: 'Register', url: '/register'},
+                    { text: 'About Us', url: '/#aboutus'}
             ]
         }
     },

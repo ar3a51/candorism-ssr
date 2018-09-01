@@ -10,10 +10,16 @@
               </section>
           </div>
        </div>
-        <div class="services">
-            services
+        <div class="services col-12" id="services">
+            
+                <cando-box/>
+            
+                <cando-box/>
+            
+                <cando-box/>
+            
         </div>
-        <div class="aboutus">
+        <div class="aboutus" id="aboutus">
             aboutus
         </div>
    </div>
@@ -73,6 +79,22 @@ export default {
                    float: left;
                }
            }
+        }
+
+        .services {
+            height: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: space-around;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+        }
+
+        .aboutus {
+            height: 800px;
         }
     }
 </style>
