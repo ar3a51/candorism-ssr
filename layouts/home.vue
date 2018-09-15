@@ -41,8 +41,7 @@
             <v-toolbar-items class="hidden-sm-and-down">
                 <v-btn flat v-for="(link, index) in links" 
                     :key="index" 
-                    :to="link.url"
-                    :nuxt="true">
+                    @click.prevent="link.action">
                     {{link.text}}
                 </v-btn>
             </v-toolbar-items>
@@ -53,20 +52,28 @@
     </v-app>
 </template>
 <script>
+import Vue from 'vue';
+
 export default {
-    mounted() {
-        console.log("mounted");
-    },
     data() {
+        const vm = this;
         return {
             display: false,
             links: [
-                    { text: 'Home', url: '/'},
-                    { text: 'Register', url: '/register'},
-                    { text: 'About Us', url: '/#aboutus'}
+                    { text: 'Home', action: function() {
+                        alert("home");
+                    }},
+                    { text: 'Register', action: function() {
+                       vm.$store.commit('home/display',true);
+                    }},
+                    { text: 'About Us', action: function() {
+                        alert("aboutUs");
+                    }}
             ]
         }
     },
+    methods: {
+    }
 }
 </script>
 <style lang="scss" scoped>

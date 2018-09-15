@@ -1,10 +1,10 @@
 module.exports = {
     build: {
        
-        vendor: ['axios', 'vuetify'],
+        vendor: ['axios', 'vuetify', 'vuelidate'],
     },
     plugins: [
-        '~/plugins/vuetify',
+        '~/plugins/plugins',
     ],
     head: {
         meta: [

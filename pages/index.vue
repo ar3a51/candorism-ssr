@@ -1,4 +1,6 @@
 <template>
+<main>
+    <cando-reg-dialogue :display="isDisplayRegBox"/>
    <div class="grid-container">
        <div class="banner">
           <div class="welcome-login col-11">
@@ -22,16 +24,26 @@
         <div class="aboutus" id="aboutus">
             aboutus
         </div>
+       
    </div>
+</main>
 </template>
 <script>
 import CandoBox from '@/components/home-components/cando-box';
 import LoginForm from '@/components/home-components/login-form';
-
+import registrationDialogue from '@/components/home-components/registration-dialogue';
 export default {
     components: {
         'cando-box': CandoBox,
         'cando-login': LoginForm,
+        'cando-reg-dialogue': registrationDialogue,
+    },
+    data() {
+    },
+    computed: {
+        isDisplayRegBox: function () {
+            return this.$store.state.home.displayRegistration;
+        }
     },
     asyncData() {
         return {
