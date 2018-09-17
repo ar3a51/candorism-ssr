@@ -5,7 +5,10 @@
        <div class="banner">
           <div class="welcome-login col-11">
               <section class="welcome-message hidden-sm-and-down col-md-6 col-lg-6 col-xl-6">
-                  test
+                  <div class="col-12" id="title"><h1>welcome</h1></div>
+                  <div class="col-12" id="welcome-message-content">
+                      is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                  </div>
               </section>
               <section class="login-section col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                 <cando-login />
@@ -13,7 +16,9 @@
           </div>
        </div>
         <div class="services col-12" id="services">
-            
+            <div class="col-11">
+            <div class="service-header"><h1>Our Services</h1></div>
+            <div class="service-content col-12">
                 <cando-box>
                     <h2 slot="title">what is lorem?</h2>
                     <div slot="content">
@@ -35,10 +40,17 @@
                         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
                     </div>
                 </cando-box>
-            
+            </div>
+            </div>
         </div>
         <div class="aboutus" id="aboutus">
-            aboutus
+            <div class="col-11">
+                <div class="title"><h1>About Us</h1></div>
+                <div class="content">
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                </div>
+            </div>
+            
         </div>
        
    </div>
@@ -93,11 +105,9 @@ export default {
                
 
                .welcome-message {
+                  color: #ccc;
+               
                   
-                   display: flex;
-                   //justify-content: flex-start;
-                   align-items: center;
-                   float: left;
                }
 
                .login-section {
@@ -111,18 +121,32 @@ export default {
 
         .services {
             height: auto;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            align-content: space-around;
-            flex-wrap: wrap;
             padding-top: 20px;
             padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            .service-header {
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+            .service-content {
+                 display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                align-content: space-around;
+                flex-wrap: wrap;
+            }
 
         }
 
         .aboutus {
-            height: 800px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: green;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     }
 </style>

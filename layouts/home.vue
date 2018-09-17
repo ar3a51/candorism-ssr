@@ -19,7 +19,7 @@
                 <v-list-tile 
                     v-for="(link, index) in links"
                     :key="index"
-                    @click.prevent="navigate(link.url)">
+                    @click.prevent="link.action">
                     <v-list-tile-content>
                         <v-list-tile-title>
                             {{link.text}}
