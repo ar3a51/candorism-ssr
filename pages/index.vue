@@ -14,11 +14,27 @@
        </div>
         <div class="services col-12" id="services">
             
-                <cando-box/>
+                <cando-box>
+                    <h2 slot="title">what is lorem?</h2>
+                    <div slot="content">
+                        is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+                    </div>
+                </cando-box>
             
-                <cando-box/>
-            
-                <cando-box/>
+               <cando-box>
+                    <h2 slot="title">Where does it come from?</h2>
+                    <div slot="content">
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                    </div>
+               </cando-box>
+                <cando-box>
+                    <h2 slot="title">
+                        Why do we use it?
+                    </h2>
+                    <div slot="content">
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                    </div>
+                </cando-box>
             
         </div>
         <div class="aboutus" id="aboutus">
