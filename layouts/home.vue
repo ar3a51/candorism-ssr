@@ -61,13 +61,13 @@ export default {
             display: false,
             links: [
                     { text: 'Home', action: function() {
-                        alert("home");
+                        window.location.href="/";
                     }},
                     { text: 'Register', action: function() {
                        vm.$store.commit('home/display',true);
                     }},
                     { text: 'About Us', action: function() {
-                        alert("aboutUs");
+                        window.location.href="/#aboutus";
                     }}
             ]
         }

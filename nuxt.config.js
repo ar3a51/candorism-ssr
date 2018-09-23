@@ -2,6 +2,17 @@ module.exports = {
     build: {
        
         vendor: ['axios', 'vuetify', 'vuelidate'],
+        
+        extend: (config) => {
+          const svgRule = config.module.rules.find(rule => rule.loader === 'url-loader');
+
+          svgRule.test = /\.(png|jpe?g|gif)$/;
+    
+          config.module.rules.push({
+            test: /\.svg$/,
+            loader: 'vue-svg-loader',
+          });
+        },
     },
     plugins: [
         '~/plugins/plugins',
