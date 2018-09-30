@@ -1,37 +1,52 @@
 <template>
     <v-app>
+       <left-nav-menu />
+        <v-navigation-drawer
+         :fixed="true"
+         clipped
+         right
+         :flat="true"
+         :mini-variant="true">
+
+        </v-navigation-drawer>
         <v-toolbar
+         v-if="false"
          :app="true" 
+         :clipped-left="true"
+         :clipped-right="true"
             :height="70"
             :flat="true"
             :fixed="true"
             :color="'#3f4257'">
         <v-spacer/>
         <div class="input-search-wrapper">
-        <input type="text" 
-            class="search-bar"
-            placeholder="Search"/>
-            </div>
-             <v-spacer/>
-            <v-spacer/>
-             <v-spacer/>
-              <v-spacer/>
+            <input type="text" 
+                class="form-control search-bar"
+                placeholder="Search"/>
+        </div>
+        <v-spacer/>
+        <v-spacer/>
+        <v-spacer/>
+        <v-spacer/>
             <div class="control-icon">
-              <img src="~/assets/img/icons/olympHappyFace.png"/>
+              <!--<img src="/assets/img/icons/olympHappyFace.png"/>-->
+                <svg class="olymp-happy-face-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
               <div class="label-avatar bg-blue">2</div>
             </div>
             <div class="control-icon">
-                <img src="~/assets/img/icons/chat-icon.png"/>
+                <!--<img src="/img/icons/chat-icon.png"/>-->
+                <svg class="olymp-chat---messages-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
                 <div class="label-avatar bg-purple">3</div>
             </div>
              <div class="control-icon">
-                <img src="~/assets/img/icons/thunder-icon.png"/>
+                <!--<img src="/img/icons/thunder-icon.png"/>-->
+                 <svg class="olymp-thunder-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-thunder-icon"></use></svg>
                 <div class="label-avatar bg-primary">4</div>
             </div>
             <v-spacer/>
             <div class="author">
                 <div class="author-thumb">
-                    <img src="~/assets/img/author-page.jpg"/>
+                    <img src="/img/author-page.jpg"/>
                     <span class="icon-status online"></span>
                 </div>
                  <a>
@@ -40,26 +55,34 @@
                     </a>
             </div>
         </v-toolbar>
+        <toolbar-mobile />
         <v-content>
-            <nuxt />
+            <div class="content">
+                <nuxt />
+            </div>
         </v-content>
     </v-app>
 </template>
 <script>
-
+import leftNavMenu from '~/components/layouts/main/left-nav-drawer';
+import toolbarMobile from '~/components/layouts/main/toolbar-mobile';
 export default {
- 
-    
+    components: {
+        "left-nav-menu": leftNavMenu,
+        "toolbar-mobile": toolbarMobile,
+    }
 }
 </script>
 <style lang="scss" scoped>
-
+@import './css/control-icon';
 $height: 70px;
 
 .logo {
         width: 159px;
         height: 50px;
     }
+
+
 .input-search-wrapper {
     width: 500px;
     background-color: #494c62;
@@ -70,11 +93,17 @@ $height: 70px;
         padding-left: 10px;
         width: 100%;
         color: #9a9fbf;
+        border: none;
+    }
+    button {
+        height: 10px;
+        padding: 0px;
     }
 }
 
 .author {
     box-sizing: box;
+    margin-right: 40px;
 
     .author-thumb {
         position: relative;
@@ -102,7 +131,7 @@ $height: 70px;
 
     a {
         padding-top: 10px;
-        
+        float: left;
         .author-title {
             font-weight: 700;
             font-size: 12px;
@@ -118,39 +147,12 @@ $height: 70px;
     }
 }
 
-.control-icon {
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    img {
-        width: 20px;
-        height: 20px;
-    }
-    .label-avatar {
-        width: 19px;
-        height: 19px;
-        line-height: 19px;
-        top: -12px;
-        right: 3px;
-        border-radius: 100%;
-        position: absolute;
-        text-align: center;
-        color: #fff;
-        font-size: 10px;
-        font-weight: 700;   
-    }
 
-    .bg-blue {
-        background-color:#38a9ff;
-    }
-
-    .bg-purple {
-        background-color:#7c5ac2;
-    }
-
-    .bg-primary {
-        background-color:#007bff!important;
-    }
+.content {
+    top: $height;
+    left: $height;
 }
+
+
 </style>
 

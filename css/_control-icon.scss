@@ -1,0 +1,41 @@
+.control-icon {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    svg {
+        width: 25px;
+        height: 25px;
+        fill: #fff;
+    }
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .label-avatar {
+        width: 19px;
+        height: 19px;
+        line-height: 19px;
+        top: -12px;
+        right: 3px;
+        border-radius: 100%;
+        position: absolute;
+        text-align: center;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;   
+    }
+    
+    .bg-blue {
+        background-color:#38a9ff;
+    }
+    
+    .bg-purple {
+        background-color:#7c5ac2;
+    }
+    
+    .bg-primary {
+        background-color:#007bff!important;
+    }
+    
+}

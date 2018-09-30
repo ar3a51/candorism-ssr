@@ -33,7 +33,7 @@
             :height="60"
             :flat="false"
             :fixed="true">
-            <img src="~/assets/candorism_logo.png" class="logo"/>
+            <img src="/candorism_logo.png" class="logo"/>
             <v-spacer/>
               <v-toolbar-side-icon 
                 @click="display = !display"

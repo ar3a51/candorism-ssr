@@ -1,18 +1,40 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+
 module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+    ]
+  },
     build: {
        
         vendor: ['axios', 'vuetify', 'vuelidate'],
-        
-        extend: (config) => {
-          const svgRule = config.module.rules.find(rule => rule.loader === 'url-loader');
-
-          svgRule.test = /\.(png|jpe?g|gif)$/;
+        extractCSS: true,
+        extend (config, ctx) {
+          // Excludes /assets/svg from url-loader
+          const urlLoader = config.module.rules.find((rule) => rule.test.toString() === '/\\.(png|jpe?g|gif|svg)$/');
+          //urlLoader.exclude = /(assets\/svg)/
+          //config.module.rules.splice(config.module.rules.indexOf(urlLoader), 1);
+          const index = config.module.rules.indexOf(urlLoader);
     
-          config.module.rules.push({
-            test: /\.svg$/,
-            loader: 'vue-svg-loader',
-          });
-        },
+          // Includes /assets/svg for svg-sprite-loader
+          /*config.module.rules.push({
+            test: /\\.(png|jpe?g|gif)$/,
+            loader: 'url-loader',
+            query: {
+              limit: 1000, // 1KO
+              name: 'img/[name].[hash:7].[ext]',
+            },
+          });*/
+          config.module.rules[index].test = /\\.(jpe?g|gif|png)$/;
+    
+          // Uncomment line below to view webpack rules
+           console.dir(config.module.rules[index]);
+      },
     },
     plugins: [
         '~/plugins/plugins',
