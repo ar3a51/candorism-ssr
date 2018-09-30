@@ -10,7 +10,7 @@
 
         </v-navigation-drawer>
         <v-toolbar
-         v-if="false"
+         v-if="true"
          :app="true" 
          :clipped-left="true"
          :clipped-right="true"
@@ -18,6 +18,11 @@
             :flat="true"
             :fixed="true"
             :color="'#3f4257'">
+          <v-toolbar-items>
+            <div id="logo" class="logo">
+                <img src="/logo.png"/>
+            </div>
+        </v-toolbar-items>
         <v-spacer/>
         <div class="input-search-wrapper">
             <input type="text" 
@@ -75,13 +80,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import './css/control-icon';
+@import './css/logo';
+
 $height: 70px;
-
-.logo {
-        width: 159px;
-        height: 50px;
-    }
-
 
 .input-search-wrapper {
     width: 500px;

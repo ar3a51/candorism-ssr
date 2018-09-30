@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar v-if="true"
+    <v-toolbar v-if="false"
             :app="true"
             :clipped-left="true"
             :clipped-right="true"
@@ -43,9 +43,8 @@
  @import './css/label-avatar';
  @import './css/logo';
 
-    .toolbar {
-        padding-left: 0px;
-    }
+  
+
     #toolbar-mobile {
         display: flex;
         justify-content: center;
