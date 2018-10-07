@@ -9,8 +9,9 @@
          :mini-variant="true">
 
         </v-navigation-drawer>
+        <toolbar-mobile />
         <v-toolbar
-         v-if="true"
+         v-if="$vuetify.breakpoint.lgAndUp"
          :app="true" 
          :clipped-left="true"
          :clipped-right="true"
@@ -33,32 +34,95 @@
         <v-spacer/>
         <v-spacer/>
         <v-spacer/>
-            <div class="control-icon">
+          <v-menu offset-y
+                     fixed
+                     :nudge-right="'10px'"
+                     :open-on-click="false"
+                     :open-on-hover="true"
+                     :full-width="true">
+            <div slot="activator" class="control-icon">
               <!--<img src="/assets/img/icons/olympHappyFace.png"/>-->
                 <svg class="olymp-happy-face-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
               <div class="label-avatar bg-blue">2</div>
             </div>
-            <div class="control-icon">
+             <v-list>
+                    <v-list-tile
+                    v-for="(item, index) in items"
+                    :key="index"
+                    @click=""
+                    >
+                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
+            </v-menu>
+            <v-menu offset-y
+                     fixed
+                     :nudge-right="'10px'"
+                     :open-on-click="false"
+                     :open-on-hover="true">
+            <div slot="activator" class="control-icon">
                 <!--<img src="/img/icons/chat-icon.png"/>-->
                 <svg class="olymp-chat---messages-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
                 <div class="label-avatar bg-purple">3</div>
             </div>
-             <div class="control-icon">
-                <!--<img src="/img/icons/thunder-icon.png"/>-->
-                 <svg class="olymp-thunder-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-thunder-icon"></use></svg>
-                <div class="label-avatar bg-primary">4</div>
-            </div>
-            <v-spacer/>
-            <div class="author">
-                <div class="author-thumb">
-                    <img src="/img/author-page.jpg"/>
-                    <span class="icon-status online"></span>
+             <v-list>
+                    <v-list-tile
+                    v-for="(item, index) in items"
+                    :key="index"
+                    @click=""
+                    >
+                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
+            </v-menu>
+             <v-menu offset-y
+                     fixed
+                     :nudge-right="'10px'"
+                     :open-on-click="false"
+                     :open-on-hover="true">
+                <div slot="activator" class="control-icon">
+                    <!--<img src="/img/icons/thunder-icon.png"/>-->
+                    <svg class="olymp-thunder-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-thunder-icon"></use></svg>
+                    <div class="label-avatar bg-primary">4</div>
                 </div>
-                 <a>
-                        <div class="author-title">James Spiegel</div>
-                        <span class="author-subtitle">Space Cowboy</span>
-                    </a>
-            </div>
+                 <v-list>
+                    <v-list-tile
+                    v-for="(item, index) in items"
+                    :key="index"
+                    @click=""
+                    >
+                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
+            </v-menu>
+            <v-spacer/>
+             <v-menu offset-y
+                     fixed
+                     :nudge-right="'10px'"
+                     :open-on-click="false"
+                     :open-on-hover="true">
+                <div slot="activator" class="author">
+            
+                    <div  class="author-thumb">
+                        <img src="/img/author-page.jpg"/>
+                        <span class="icon-status online"></span>
+                    </div>
+                        <a>
+                            <div class="author-title">James Spiegel</div>
+                            <span class="author-subtitle">Space Cowboy</span>
+                        </a>
+                
+                </div>
+                  <v-list>
+                    <v-list-tile
+                    v-for="(item, index) in items"
+                    :key="index"
+                    @click=""
+                    >
+                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
+             </v-menu>
         </v-toolbar>
         <toolbar-mobile />
         <v-content>
@@ -69,13 +133,36 @@
     </v-app>
 </template>
 <script>
+import '~/css/main.scss';
 import leftNavMenu from '~/components/layouts/main/left-nav-drawer';
 import toolbarMobile from '~/components/layouts/main/toolbar-mobile';
 export default {
+     data: () => ({
+      items: [
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me 2' }
+      ]
+    }),
     components: {
         "left-nav-menu": leftNavMenu,
         "toolbar-mobile": toolbarMobile,
+    },
+    mounted () {
+        console.log(this.$vuetify.breakpoint)
+    },
+     computed: {
+        imageHeight () {
+        switch (this.$vuetify.breakpoint.name) {
+            case 'xs': return '220px'
+            case 'sm': return '400px'
+            case 'md': return '500px'
+            case 'lg': return '600px'
+            case 'xl': return '800px'
+        }
     }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -105,6 +192,7 @@ $height: 70px;
 .author {
     box-sizing: box;
     margin-right: 40px;
+    user-select: none;
 
     .author-thumb {
         position: relative;
