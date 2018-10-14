@@ -33,14 +33,20 @@
             </div>
         </v-toolbar>
         <div class="tab-content-wrapper">
-
+            <cando-friends-notification v-if="true" />
+            <cando-message-notification v-if="false" />
         </div>
     </header>
 </template>
 <script>
+    import friendsNotification from '~/components/layouts/main/notification-dropdown/friends-notification';
+    import messageNotification from '~/components/layouts/main/notification-dropdown/message-notification';
+    
     export default {
-
-
+        components: {
+            'cando-friends-notification' : friendsNotification,
+            'cando-message-notification' : messageNotification,
+        },
     }
 </script>
 <style lang="scss" scoped>
@@ -49,7 +55,7 @@
  @import './css/logo';
 
   .header-wrapper {
-     
+   
 
     #toolbar-mobile {
         display: flex;
@@ -64,12 +70,13 @@
 
     .tab-content-wrapper {
         width: 100%;
-         display: block;
+        display: block;
         position: absolute;
         left:0;
-        z-index: -1;
+        z-index: 100;
         top:70px;
         height: auto;
+        background-color: #fff;
 
     }
 }
