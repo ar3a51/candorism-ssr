@@ -142,6 +142,8 @@ export default {
                         }
 
                          &:hover {
+                             cursor: pointer;
+                             
                             .more {
                                 opacity: 1;
                             }
@@ -179,6 +181,12 @@ export default {
                     .author-thumb {
                         height: 40px;
                         width: 40px;
+
+                        img {
+                            border-radius: 100%;
+                            overflow: hidden;
+                            max-width: unset;
+                        }
                     }
 
                     .notification-event {
